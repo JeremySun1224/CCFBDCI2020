@@ -5,12 +5,14 @@ CCF大数据与计算智能大赛（CCF BDCI）中的一个文本分类的比赛
 文本分类任务相对而言是较为容易的NLP任务。但是，这个比赛的重点是测试集需要对20000个文本归为10个类别，可只提供了7个类别共计7000个训练样本，还有3个类别（分别是```游戏，娱乐和体育```）的文章需要在主办方提供的33000的无监督语料中自行利用算法提取。
 
 本人是在A榜截止提交后才跑通这个算法的，而且效果非常好，抽取出来的3类无监督文本所属类型均是正确的，充分利用这个方法，线上成绩单模可以逼近```0.9```。以下是3个无监督文本的提取结果（部分），其中，抽取出来的游戏类文本共计2431、娱乐类文本共计3582、体育类文本共计1999.
+
 ```游戏```
 <img src='https://github.com/JeremySun1224/CCFBDCI2020-Multi-Classification-from-Labeled-and-Unlabeled-Context/blob/main/img/%E6%B8%B8%E6%88%8F.png'>
 ```娱乐```
 <img src='https://github.com/JeremySun1224/CCFBDCI2020-Multi-Classification-from-Labeled-and-Unlabeled-Context/blob/main/img/%E5%A8%B1%E4%B9%90.png'>
 ```体育```
 <img src='https://github.com/JeremySun1224/CCFBDCI2020-Multi-Classification-from-Labeled-and-Unlabeled-Context/blob/main/img/%E4%BD%93%E8%82%B2.png'>
+
 ### 1.预训练
 首先，在哈工大开源的中文```RoBerta```的基础上，对下游任务语料继续进行领域内预训练，得到模型```RoBerta-self```。实验表明，线上宏F1可以提升0.7个点。
 ### 2.无监督训练
